@@ -11,10 +11,15 @@ abstract class Animal implements LivingBeing {
   public void eat(int mass) {
   }
 
-  public void info() {
+  public String info() {
+    return "name: " + this.name;
   }
 
   public String getName() {
     return this.name;
+  }
+
+  public void setName(String name) {
+    this.name = "Ant-" + name;
   }
 }

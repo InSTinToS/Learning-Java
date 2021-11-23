@@ -3,5 +3,5 @@ public interface LivingBeing {
 
   public void eat(int mass);
 
-  public void info();
+  public String info();
 }
