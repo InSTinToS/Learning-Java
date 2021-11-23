@@ -1,26 +1,47 @@
 import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import java.util.List;
+import java.util.LinkedList;
+import java.util.Queue;
+import java.util.Stack;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        Path dir = Paths.get("C:/Users/Miguel/Desktop/codigos/Aulas/Java/Java/src");
-        Path file = Paths.get("C:/Users/Miguel/Desktop/codigos/Aulas/Java/Java/src/Ant.java");
+        // Stack: first in is the last out
 
-        if (Files.isDirectory(dir))
-            System.out.println("dir exists");
-        else
-            System.out.println("dir not exists");
+        Stack<String> cars = new Stack<>();
 
-        if (Files.exists(file))
-            System.out.println("file exists");
-        else
-            System.out.println("file not exists");
+        cars.push("HRV");
+        cars.push("GOLF");
+        cars.push("POLO");
+        cars.push("CAMARO");
 
-        List<String> lines = Files.readAllLines(file);
+        System.out.println(cars);
 
-        lines.forEach((line) -> System.out.println(line));
+        System.out.println(cars.peek()); // peek the top of stack
 
+        System.out.println("remove top: " + cars.pop()); // return top element and remove it
+
+        System.out.println(cars.peek());
+
+        System.out.println(cars.empty());
+
+        System.out.println("------------------------");
+
+        // Queue: first in is the first out
+
+        Queue<String> persons = new LinkedList<>();
+
+        persons.add("Miguel");
+        persons.add("Gabriel");
+        persons.add("Jean");
+
+        System.out.println(persons);
+
+        System.out.println(persons.peek());
+
+        System.out.println("remove top: " + persons.poll()); // equal pop
+
+        System.out.println(persons.peek());
+
+        System.out.println(persons.isEmpty());
     }
 }
