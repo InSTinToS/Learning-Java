@@ -1,5 +1,8 @@
-public class Animal implements LivingBeing {
-  public Animal() {
+abstract class Animal implements LivingBeing {
+  private String name;
+
+  public Animal(String name) {
+    this.name = name;
   }
 
   public void move() {
@@ -9,5 +12,9 @@ public class Animal implements LivingBeing {
   }
 
   public void info() {
+  }
+
+  public String getName() {
+    return this.name;
   }
 }
