@@ -1,47 +1,36 @@
-import java.nio.file.Files;
-import java.util.LinkedList;
-import java.util.Queue;
-import java.util.Stack;
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.Iterator;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // Stack: first in is the last out
+        // is key value object
+        HashMap<Integer, String> cars = new HashMap<Integer, String>();
 
-        Stack<String> cars = new Stack<>();
-
-        cars.push("HRV");
-        cars.push("GOLF");
-        cars.push("POLO");
-        cars.push("CAMARO");
+        cars.put(1, "Polo");
+        cars.put(2, "Golf");
+        cars.put(3, "Camaro");
 
         System.out.println(cars);
+        System.out.println(cars.get(3));
+        System.out.println(cars.values());
+        System.out.println(cars.keySet());
 
-        System.out.println(cars.peek()); // peek the top of stack
+        System.out.println("---------------------------------------");
+        // is array with unique values
+        HashSet<String> persons = new HashSet<String>();
 
-        System.out.println("remove top: " + cars.pop()); // return top element and remove it
-
-        System.out.println(cars.peek());
-
-        System.out.println(cars.empty());
-
-        System.out.println("------------------------");
-
-        // Queue: first in is the first out
-
-        Queue<String> persons = new LinkedList<>();
-
-        persons.add("Miguel");
-        persons.add("Gabriel");
-        persons.add("Jean");
+        persons.add("Polo");
+        persons.add("Polo");
+        persons.add("Golf");
 
         System.out.println(persons);
 
-        System.out.println(persons.peek());
+        System.out.println("---------------------------------------");
 
-        System.out.println("remove top: " + persons.poll()); // equal pop
+        Iterator<String> it = persons.iterator();
 
-        System.out.println(persons.peek());
-
-        System.out.println(persons.isEmpty());
+        while (it.hasNext())
+            System.out.println(it.next());
     }
 }
