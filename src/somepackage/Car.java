@@ -1,3 +1,5 @@
+package somepackage;
+
 public class Car {
   private String nome;
   private Boolean ligado;
