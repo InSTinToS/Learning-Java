@@ -1,9 +1,21 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        // abstract class cant be instantiated only extends
-        // Animal miguel = new Animal("Ant miguel");
+        int cont = 10;
 
-        Ant miguel = new Ant("Ant Miguel");
-        System.out.println(miguel.getName());
+        // continue stop the current interaction e move to next
+        // break stop the current and all nexts interactions
+        for (int i = 0; i < cont; i++) {
+            if (i % 2 == 0)
+                continue;
+            System.out.println(i);
+        }
+
+        System.out.println("---------------------");
+
+        for (int i = 0; i < cont; i++) {
+            if (i == 5)
+                break;
+            System.out.println(i);
+        }
     }
 }
