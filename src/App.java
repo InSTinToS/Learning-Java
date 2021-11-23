@@ -2,17 +2,26 @@ import java.util.ArrayList;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        ArrayList<Integer> array = new ArrayList<>(100);
-        int variable = 0;
+        try {
+            ArrayList<Integer> array = new ArrayList<>(100);
+            int variable = 0;
 
-        array.add(variable);
+            array.add(variable);
 
-        changeArrayAndNotChangeVariable(array, variable);
+            changeArrayAndNotChangeVariable(array, variable);
 
-        array.trimToSize(); // remove index not used
+            if (variable != 0)
+                throw new Error("variable changed");
 
-        System.out.println(array.get(0));
-        System.out.println(variable);
+            array.trimToSize(); // remove index not used
+
+            System.out.println(array.get(0));
+            System.out.println(variable);
+        } catch (Error error) {
+            System.out.println("error" + error);
+        } finally {
+            System.out.println("will print anyway");
+        }
 
     }
 
