@@ -1,17 +1,23 @@
+import java.util.ArrayList;
+
 public class App {
     public static void main(String[] args) throws Exception {
-        int[] array = { 0, 1, 2, 3, 4 };
+        ArrayList<Integer> array = new ArrayList<>(100);
         int variable = 0;
+
+        array.add(variable);
 
         changeArrayAndNotChangeVariable(array, variable);
 
-        System.out.println(array[0]);
+        array.trimToSize(); // remove index not used
+
+        System.out.println(array.get(0));
         System.out.println(variable);
 
     }
 
-    public static void changeArrayAndNotChangeVariable(int[] sameArray, int variable) {
-        sameArray[0] = 9999;
+    public static void changeArrayAndNotChangeVariable(ArrayList<Integer> sameArray, int variable) {
+        sameArray.add(0, 1);
         variable = 9999;
     }
 }
