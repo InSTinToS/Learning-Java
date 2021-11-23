@@ -4,38 +4,37 @@ import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        int rowsSize = 3;
-        int columnsSize = 5;
+        int[][] matrix = { { 2, 3, 1 }, { 3, 1, 3 }, { 1, 2, 3 } };
 
-        int[][] numbers = new int[rowsSize][columnsSize];
-        int[][] defaultSettedMatrix = { { 0, 1, 2, 3, 4 }, { 0, 1, 2, 3, 4 }, { 0, 1, 2, 3, 4 } };
+        printMatrix(matrix);
+        System.out.println(sum(3, 1, 5, 6, 7));
+        System.out.println(sum(3.0, 1.1, 5.5, 6.4, 7.3));
+    }
 
-        for (int i = 0; i < rowsSize; i++) {
-            for (int j = 0; j < columnsSize; j++) {
-                numbers[i][j] = new SecureRandom().nextInt(100);
-            }
-        }
-
-        for (int i = 0; i < rowsSize; i++) {
-            for (int j = 0; j < columnsSize; j++) {
-                System.out.print(numbers[i][j] + "\t");
-            }
-
-            System.out.println();
-        }
-
-        System.out.println("-------------------");
-
-        for (int[] row : defaultSettedMatrix) {
-            // for repeat 3 times (size of row)
-
-            for (int column : row) {
-                // for repeat 5 times (size of column)
-
+    public static void printMatrix(int[][] matrix) {
+        for (int[] row : matrix) {
+            for (int column : row)
                 System.out.print(column + "\t");
-            }
-
             System.out.println();
         }
     }
+
+    public static Double sum(Double... numbers) {
+        Double sum = 0D;
+
+        for (Double number : numbers)
+            sum += number;
+
+        return sum;
+    }
+
+    public static int sum(int... numbers) {
+        int sum = 0;
+
+        for (int number : numbers)
+            sum += number;
+
+        return sum;
+    }
+
 }
