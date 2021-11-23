@@ -1,36 +1,41 @@
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.function.Consumer;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        // is key value object
-        HashMap<Integer, String> cars = new HashMap<Integer, String>();
 
-        cars.put(1, "Polo");
-        cars.put(2, "Golf");
-        cars.put(3, "Camaro");
+        ArrayList<Integer> values = new ArrayList<>();
+        ArrayList<Integer> doubles = new ArrayList<>();
+        ArrayList<Integer> odds = new ArrayList<>();
+        ArrayList<Integer> evens = new ArrayList<>();
 
-        System.out.println(cars);
-        System.out.println(cars.get(3));
-        System.out.println(cars.values());
-        System.out.println(cars.keySet());
+        Consumer<Integer> doubler = (value) -> {
+            doubles.add(value * 2);
+        };
 
-        System.out.println("---------------------------------------");
-        // is array with unique values
-        HashSet<String> persons = new HashSet<String>();
+        values.add(1);
+        values.add(2);
+        values.add(3);
+        values.add(4);
+        values.add(5);
+        values.add(6);
 
-        persons.add("Polo");
-        persons.add("Polo");
-        persons.add("Golf");
+        values.forEach(doubler);
 
-        System.out.println(persons);
+        values.forEach((value) -> {
+            if (value % 2 == 0)
+                evens.add(value);
+            else
+                odds.add(value);
+        });
 
-        System.out.println("---------------------------------------");
+        System.out.println(values);
+        System.out.println(doubles);
+        System.out.println(odds);
+        System.out.println(evens);
 
-        Iterator<String> it = persons.iterator();
-
-        while (it.hasNext())
-            System.out.println(it.next());
     }
 }
