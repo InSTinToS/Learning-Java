@@ -1,32 +1,26 @@
-import java.util.ArrayList;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.List;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        try {
-            ArrayList<Integer> array = new ArrayList<>(100);
-            int variable = 0;
+        Path dir = Paths.get("C:/Users/Miguel/Desktop/codigos/Aulas/Java/Java/src");
+        Path file = Paths.get("C:/Users/Miguel/Desktop/codigos/Aulas/Java/Java/src/Ant.java");
 
-            array.add(variable);
+        if (Files.isDirectory(dir))
+            System.out.println("dir exists");
+        else
+            System.out.println("dir not exists");
 
-            changeArrayAndNotChangeVariable(array, variable);
+        if (Files.exists(file))
+            System.out.println("file exists");
+        else
+            System.out.println("file not exists");
 
-            if (variable != 0)
-                throw new Error("variable changed");
+        List<String> lines = Files.readAllLines(file);
 
-            array.trimToSize(); // remove index not used
+        lines.forEach((line) -> System.out.println(line));
 
-            System.out.println(array.get(0));
-            System.out.println(variable);
-        } catch (Error error) {
-            System.out.println("error" + error);
-        } finally {
-            System.out.println("will print anyway");
-        }
-
-    }
-
-    public static void changeArrayAndNotChangeVariable(ArrayList<Integer> sameArray, int variable) {
-        sameArray.add(0, 1);
-        variable = 9999;
     }
 }
