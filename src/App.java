@@ -1,9 +1,17 @@
 public class App {
     public static void main(String[] args) throws Exception {
-        Ant[] array = new Ant[5];
+        int[] array = { 0, 1, 2, 3, 4 };
+        int variable = 0;
 
-        array[0] = new Ant("Miguel");
+        changeArrayAndNotChangeVariable(array, variable);
 
-        System.out.println(array[0].info());
+        System.out.println(array[0]);
+        System.out.println(variable);
+
+    }
+
+    public static void changeArrayAndNotChangeVariable(int[] sameArray, int variable) {
+        sameArray[0] = 9999;
+        variable = 9999;
     }
 }
