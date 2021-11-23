@@ -1,37 +1,41 @@
+import java.security.SecureRandom;
 import java.util.Arrays;
 import java.util.Scanner;
 
 public class App {
     public static void main(String[] args) throws Exception {
-        int arraySize = 5;
-        int[] array = new int[arraySize];
-        int[] defaultSettedArray = { 0, 3, 4, 1, 2, 5 };
+        int rowsSize = 3;
+        int columnsSize = 5;
 
-        System.out.println("enter 5 numbers");
+        int[][] numbers = new int[rowsSize][columnsSize];
+        int[][] defaultSettedMatrix = { { 0, 1, 2, 3, 4 }, { 0, 1, 2, 3, 4 }, { 0, 1, 2, 3, 4 } };
 
-        Scanner keyboard = new Scanner(System.in);
+        for (int i = 0; i < rowsSize; i++) {
+            for (int j = 0; j < columnsSize; j++) {
+                numbers[i][j] = new SecureRandom().nextInt(100);
+            }
+        }
 
-        for (int i = 0; i < array.length; i++)
-            array[i] = keyboard.nextInt();
+        for (int i = 0; i < rowsSize; i++) {
+            for (int j = 0; j < columnsSize; j++) {
+                System.out.print(numbers[i][j] + "\t");
+            }
 
-        keyboard.close();
+            System.out.println();
+        }
 
-        System.out.println("----------------------");
+        System.out.println("-------------------");
 
-        // foreach
-        for (int arrayValue : array)
-            System.out.println(arrayValue);
+        for (int[] row : defaultSettedMatrix) {
+            // for repeat 3 times (size of row)
 
-        System.out.println("----------- Sort -----------");
+            for (int column : row) {
+                // for repeat 5 times (size of column)
 
-        Arrays.sort(defaultSettedArray);
+                System.out.print(column + "\t");
+            }
 
-        for (int arrayValue : defaultSettedArray)
-            System.out.println(arrayValue);
-
-        System.out.println("----------- IndexOf -----------");
-
-        System.out.println(Arrays.binarySearch(defaultSettedArray, 3));
-        System.out.println(Arrays.binarySearch(defaultSettedArray, 9));
+            System.out.println();
+        }
     }
 }
